@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mb-4">
+            <app-post-form></app-post-form>
+        </div>
+    </div>
+    <div class="row">
+        <ng-container *ngIf="postArr.length > 1 ;else noPost">
+            <div class="col-md-4 mb-4" *ngFor="let postObj of postArr; trackBy : trackById">
+            <app-post-card
+            [post]="postObj"
+            ></app-post-card>
+        </div>
+        </ng-container>
+
+        <ng-template #noPost>
+            <p class="alert alert-danger">
+                No Post Available!!!
+            </p>
+        </ng-template>
+    </div>
+</div>
